@@ -18,3 +18,26 @@ vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch curren
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+
+-- terminal
+local split_term_buf
+local split_term_win
+
+local function toggle_horizontal_terminal()
+  if split_term_win and vim.api.nvim_win_is_valid(split_term_win) then
+    vim.api.nvim_win_close(split_term_win, true)
+    split_term_win = nil
+  elseif split_term_buf and vim.api.nvim_buf_is_valid(split_term_buf) then
+    vim.cmd('botright split')
+    split_term_win = vim.api.nvim_get_current_win()
+    vim.api.nvim_win_set_buf(split_term_win, split_term_buf)
+  else
+    vim.cmd('botright split')
+    vim.cmd('terminal')
+    split_term_win = vim.api.nvim_get_current_win()
+    split_term_buf = vim.api.nvim_get_current_buf()
+  end
+end
+
+vim.keymap.set('n', '<leader>h', toggle_horizontal_terminal, { desc = 'toggle horizontal terminal' })
+
