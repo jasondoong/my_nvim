@@ -20,6 +20,22 @@ vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]re
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 
+-- quickfix
+vim.keymap.set('n', '<leader>co', ':copen<CR>', { desc = 'open quickfix window' })
+vim.keymap.set('n', '<leader>cc', ':cclose<CR>', { desc = 'close quickfix window' })
+
+-- copy the current buffer's file path to the clipboard
+vim.keymap.set('n', '<leader>yf', function()
+  -- Use the path relative to the current working directory instead of the
+  -- absolute path. This keeps the copied path shorter when working inside a
+  -- project directory.
+  local path = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
+  vim.fn.setreg('+', path)
+  vim.notify('Copied path: ' .. path)
+end, { desc = '[Y]ank current [F]ile path' })
+
+vim.keymap.set('n', '<leader>ds', ':AerialNavToggle<CR>', { desc = 'toggle Aerial navigation' })
+
 -- terminal
 local split_term_buf
 local split_term_win
