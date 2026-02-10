@@ -62,7 +62,7 @@ vim.keymap.set('n', '<leader>h', toggle_horizontal_terminal, { desc = 'toggle ho
 -------------------------------------------------------------------------------
 -- Pytest integration
 -------------------------------------------------------------------------------
-local pytest = require('plugins.my_pytest')
+local pytest = require('my_pytest')
 vim.keymap.set('n', '<leader>tt', pytest.run_nearest, { desc = 'Run nearest pytest in terminal' })
 vim.keymap.set('n', '<leader>tf', pytest.run_file, { desc = 'run tests in the file' })
 vim.keymap.set('n', '<leader>tl', pytest.run_last, { desc = 'run latest pytest again' })
