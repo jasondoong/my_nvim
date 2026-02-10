@@ -57,3 +57,13 @@ local function toggle_horizontal_terminal()
 end
 
 vim.keymap.set('n', '<leader>h', toggle_horizontal_terminal, { desc = 'toggle horizontal terminal' })
+
+
+-------------------------------------------------------------------------------
+-- Pytest integration
+-------------------------------------------------------------------------------
+local pytest = require('plugins.my_pytest')
+vim.keymap.set('n', '<leader>tt', pytest.run_nearest, { desc = 'Run nearest pytest in terminal' })
+vim.keymap.set('n', '<leader>tf', pytest.run_file, { desc = 'run tests in the file' })
+vim.keymap.set('n', '<leader>tl', pytest.run_last, { desc = 'run latest pytest again' })
+vim.keymap.set('n', '<leader>to', pytest.toggle_terminal, { desc = 'toggle pytest output window' })

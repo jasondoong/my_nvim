@@ -19,6 +19,7 @@ Minimal overview of how this Neovim setup is organized and where to place new co
 - The `lsp/` directory uses Neovim 0.11's native loader; drop per-language files (like `pyright.lua`) there.
 - Reload changes with `:source init.lua` or restart Neovim to pick them up.
 - Telescope requires `ripgrep` for live grep.
+- Install Python treesitter parser with `:TSInstall python`.
 
 ## LSP Servers
 
@@ -33,4 +34,5 @@ These need to be installed on your system for the configs in `lsp/` to work:
 npm install -g pyright
 brew install lua-language-server
 brew install ripgrep
+brew install tree-sitter-cli
 ```
