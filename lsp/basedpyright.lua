@@ -1,5 +1,5 @@
 return {
-  cmd = { "pyright-langserver", "--stdio" },
+  cmd = { "basedpyright-langserver", "--stdio" },
   filetypes = { "python" },
   capabilities = (function()
     local ok, cmp = pcall(require, "cmp_nvim_lsp")

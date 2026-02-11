@@ -75,4 +75,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Enable native LSP servers defined in lsp/
-vim.lsp.enable({ 'pyright', 'lua_ls' })
+vim.lsp.enable({ 'basedpyright', 'lua_ls' })
