@@ -58,6 +58,14 @@ vim.opt.cursorline = true
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Briefly highlight yanked text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('yank-highlight', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'YankHighlight', timeout = 200 })
+  end,
+})
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
