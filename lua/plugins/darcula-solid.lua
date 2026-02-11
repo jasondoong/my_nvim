@@ -4,6 +4,7 @@ return {
   priority = 1000,
   dependencies = { 'rktjmp/lush.nvim' },
   config = function()
-    vim.cmd.colorscheme('darcula-solid')
+    -- Use customized darcula-solid theme overrides.
+    vim.cmd.colorscheme('darcula-solid-custom')
   end,
 }
