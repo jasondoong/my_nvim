@@ -21,18 +21,18 @@ Minimal overview of how this Neovim setup is organized and where to place new co
 - Telescope requires `ripgrep` for live grep.
 - Install Python treesitter parser with `:TSInstall python`.
 
-## LSP Servers
-
-These need to be installed on your system for the configs in `lsp/` to work:
-
-- `basedpyright-langserver` (Based Pyright)
-- `lua-language-server` (Lua LS)
 
 ### macOS install
 
 ```sh
-npm install -g basedpyright
-brew install lua-language-server
 brew install ripgrep
-brew install tree-sitter-cli
+```
+
+Mason installs these for you:
+
+```
+lua-language-server
+tree-sitter-cli
+basedpyright
+lua_ls
 ```
